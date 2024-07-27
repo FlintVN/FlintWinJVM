@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 
     if(isRunDebug || mainClass == 0) {
         flint.setDebugger(&dbg);
-        FlintSystem_ThreadSleep(100);
+        FlintSystem_ThreadSleep(10);
         std::cout << "FlintJVM debug server is started" << std::endl;
         setlocale(LC_CTYPE, "");
         _setmode(_fileno(stdout), 0x00020000);
