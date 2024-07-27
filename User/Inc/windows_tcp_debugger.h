@@ -1,4 +1,7 @@
 
+#ifndef __WINDOWS_TCP_DEBUGGER_H
+#define __WINDOWS_TCP_DEBUGGER_H
+
 #include <future>
 #include <winsock2.h>
 #include "flint.h"
@@ -20,3 +23,5 @@ private:
     WindowsTcpDebugger(const WindowsTcpDebugger &) = delete;
     void operator=(const WindowsTcpDebugger &) = delete;
 };
+
+#endif /* __WINDOWS_TCP_DEBUGGER_H */
