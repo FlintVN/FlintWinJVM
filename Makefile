@@ -36,9 +36,8 @@ SOURCES       	:=  FlintJVM/VM/Src/flint_attribute_info.cpp                    \
                     User/Src/main.cpp                                           \
                     User/Src/windows_tcp_debugger.cpp                           \
                     User/Src/windows_system_api.cpp                             \
-                    User/Src/windows_system_thread.cpp                          \
                     User/Src/windows_system_file_api.cpp                        \
-                    User/Src/windows_system_memory_api.cpp
+                    User/Src/windows_system_thread_api.cpp
 
 INCLUDES      	:=  FlintJVM/Native/Inc                                         \
                     FlintJVM/VM/Inc                                             \
@@ -49,6 +48,7 @@ OPT             :=  -g
 CFLAGS          :=  -m32                                                        \
                     -std=gnu++11                                                \
                     -fdiagnostics-color=always                                  \
+                    -static -static-libgcc -static-libstdc++                    \
                     -Wall                                                       \
                     -Wno-sign-compare                                           \
                     -Wno-strict-aliasing                                        \
