@@ -14,8 +14,10 @@ void *FlintSystem_ThreadCreate(void (*task)(void *), void *param, uint32_t stack
 }
 
 void FlintSystem_ThreadTerminate(void *threadHandle) {
-    TerminateThread(threadHandle, 0);
-    CloseHandle(threadHandle);
+    if(threadHandle) {
+        TerminateThread(threadHandle, 0);
+        CloseHandle(threadHandle);
+    }
 }
 
 void FlintSystem_ThreadSleep(uint32_t ms) {
