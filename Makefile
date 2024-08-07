@@ -20,6 +20,7 @@ SOURCES       	:=  FlintJVM/VM/Src/flint_attribute_info.cpp                    \
                     FlintJVM/VM/Src/flint_method_info.cpp                       \
                     FlintJVM/VM/Src/flint_object.cpp                            \
                     FlintJVM/VM/Src/flint_out_of_memory.cpp                     \
+                    FlintJVM/VM/Src/flint_thread.cpp                            \
                     FlintJVM/VM/Src/flint_string.cpp                            \
                     FlintJVM/VM/Src/flint_throwable.cpp                         \
                     FlintJVM/VM/Src/flint.cpp                                   \
@@ -30,6 +31,7 @@ SOURCES       	:=  FlintJVM/VM/Src/flint_attribute_info.cpp                    \
                     FlintJVM/Native/Src/flint_native_float_class.cpp            \
                     FlintJVM/Native/Src/flint_native_math_class.cpp             \
                     FlintJVM/Native/Src/flint_native_object_class.cpp           \
+                    FlintJVM/Native/Src/flint_native_thread_class.cpp           \
                     FlintJVM/Native/Src/flint_native_print_stream_class.cpp     \
                     FlintJVM/Native/Src/flint_native_string_class.cpp           \
                     FlintJVM/Native/Src/flint_native_system_class.cpp           \
