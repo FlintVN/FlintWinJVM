@@ -10,7 +10,7 @@ WindowsTcpDebugger::WindowsTcpDebugger(Flint &flint) : FlintDebugger(flint) {
 
     serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
     serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons(5555);
+    serverAddr.sin_port = htons(9620);
 
     ::bind(server, reinterpret_cast<SOCKADDR *>(&serverAddr), sizeof(serverAddr));
     listen(server, 0);
