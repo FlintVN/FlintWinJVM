@@ -4,6 +4,8 @@
 
 #include "flint_common.h"
 
+#define FLINT_VARIANT_NAME          "Windows FlintJVM"
+
 #define FILE_NAME_BUFF_SIZE         256
 
 #define DEFAULT_STACK_SIZE          KILO_BYTE(1000)

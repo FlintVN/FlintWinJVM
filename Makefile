@@ -38,7 +38,7 @@ SOURCES       	:=  FlintJVM/VM/Src/flint_attribute_info.cpp                    \
                     User/Src/main.cpp                                           \
                     User/Src/windows_tcp_debugger.cpp                           \
                     User/Src/windows_system_api.cpp                             \
-                    User/Src/windows_system_file_api.cpp                        \
+                    User/Src/windows_system_io_api.cpp                          \
                     User/Src/windows_system_thread_api.cpp
 
 INCLUDES      	:=  FlintJVM/Native/Inc                                         \
