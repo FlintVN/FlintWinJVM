@@ -31,6 +31,8 @@ int main(int argc, char *argv[]) {
         dbg.receiveTask();
     }
     else {
+        _setmode(_fileno(stdout), 0x00020000);
+        _setmode(_fileno(stdin), 0x00020000);
         flint.runToMain(mainClass);
         while(flint.isRunning())
             FlintAPI::Thread::yield();
