@@ -17,6 +17,7 @@ SOURCES       	:=  FlintJVM/VM/Src/flint_attribute_info.cpp                    \
                     FlintJVM/VM/Src/flint_field_info.cpp                        \
                     FlintJVM/VM/Src/flint_fields_data.cpp                       \
                     FlintJVM/VM/Src/flint_load_file_error.cpp                   \
+                    FlintJVM/VM/Src/flint_find_native_error.cpp                 \
                     FlintJVM/VM/Src/flint_method_info.cpp                       \
                     FlintJVM/VM/Src/flint_object.cpp                            \
                     FlintJVM/VM/Src/flint_out_of_memory.cpp                     \
