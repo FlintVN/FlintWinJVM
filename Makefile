@@ -8,7 +8,6 @@ CC              :=  g++
 
 SOURCES       	:=  FlintJVM/VM/Src/flint_attribute_info.cpp                    \
                     FlintJVM/VM/Src/flint_class_loader.cpp                      \
-                    FlintJVM/VM/Src/flint_class.cpp                             \
                     FlintJVM/VM/Src/flint_common.cpp                            \
                     FlintJVM/VM/Src/flint_const_name.cpp                        \
                     FlintJVM/VM/Src/flint_const_pool.cpp                        \
@@ -19,23 +18,40 @@ SOURCES       	:=  FlintJVM/VM/Src/flint_attribute_info.cpp                    \
                     FlintJVM/VM/Src/flint_load_file_error.cpp                   \
                     FlintJVM/VM/Src/flint_find_native_error.cpp                 \
                     FlintJVM/VM/Src/flint_method_info.cpp                       \
-                    FlintJVM/VM/Src/flint_object.cpp                            \
+                    FlintJVM/VM/Src/flint_array_object.cpp                      \
                     FlintJVM/VM/Src/flint_out_of_memory.cpp                     \
-                    FlintJVM/VM/Src/flint_thread.cpp                            \
-                    FlintJVM/VM/Src/flint_string.cpp                            \
-                    FlintJVM/VM/Src/flint_throwable.cpp                         \
+                    FlintJVM/VM/Src/flint_const_utf8_binary_tree.cpp            \
+                    FlintJVM/VM/Src/flint_string_binary_tree.cpp                \
+                    FlintJVM/VM/Src/flint_class_binary_tree.cpp                 \
+                    FlintJVM/VM/Src/flint_class_data_binary_tree.cpp            \
+                    FlintJVM/VM/Src/flint_java_class.cpp                        \
+                    FlintJVM/VM/Src/flint_java_object.cpp                       \
+                    FlintJVM/VM/Src/flint_java_thread.cpp                       \
+                    FlintJVM/VM/Src/flint_java_string.cpp                       \
+                    FlintJVM/VM/Src/flint_java_throwable.cpp                    \
+                    FlintJVM/VM/Src/flint_java_boolean.cpp                      \
+                    FlintJVM/VM/Src/flint_java_byte.cpp                         \
+                    FlintJVM/VM/Src/flint_java_character.cpp                    \
+                    FlintJVM/VM/Src/flint_java_short.cpp                        \
+                    FlintJVM/VM/Src/flint_java_integer.cpp                      \
+                    FlintJVM/VM/Src/flint_java_float.cpp                        \
+                    FlintJVM/VM/Src/flint_java_long.cpp                         \
+                    FlintJVM/VM/Src/flint_java_double.cpp                       \
                     FlintJVM/VM/Src/flint.cpp                                   \
                     FlintJVM/Native/Src/flint_native_character_class.cpp        \
                     FlintJVM/Native/Src/flint_native_class_class.cpp            \
                     FlintJVM/Native/Src/flint_native_class.cpp                  \
                     FlintJVM/Native/Src/flint_native_double_class.cpp           \
                     FlintJVM/Native/Src/flint_native_float_class.cpp            \
+                    FlintJVM/Native/Src/flint_native_graphics_class.cpp         \
                     FlintJVM/Native/Src/flint_native_math_class.cpp             \
                     FlintJVM/Native/Src/flint_native_object_class.cpp           \
                     FlintJVM/Native/Src/flint_native_thread_class.cpp           \
                     FlintJVM/Native/Src/flint_native_print_stream_class.cpp     \
                     FlintJVM/Native/Src/flint_native_string_class.cpp           \
                     FlintJVM/Native/Src/flint_native_system_class.cpp           \
+                    FlintJVM/Native/Src/flint_native_biginteger_class.cpp       \
+                    FlintJVM/Native/Src/flint_native_array_class.cpp            \
                     User/Src/main.cpp                                           \
                     User/Src/windows_tcp_debugger.cpp                           \
                     User/Src/windows_system_api.cpp                             \
