@@ -4,16 +4,35 @@
 #include <time.h>
 #include "flint_system_api.h"
 
+static void *heapStart = (void *)-1;
+static void *heapEnd = (void *)0;
+
+void FlintAPI::System::reset(Flint &flint) {
+    /* DO NOTHING */
+}
+
+static void *updateHeapRegion(void *p) {
+    if(heapStart > p)
+        heapStart = p;
+    if(p > heapEnd)
+        heapEnd = p;
+    return p;
+}
+
 void *FlintAPI::System::malloc(uint32_t size) {
-    return ::malloc(size);
+    return updateHeapRegion(::malloc(size));
 }
 
 void *FlintAPI::System::realloc(void *p, uint32_t size) {
-    return ::realloc(p, size);
+    return updateHeapRegion(::realloc(p, size));
 }
 
 void FlintAPI::System::free(void *p) {
     ::free(p);
+}
+
+bool FlintAPI::System::isInHeapRegion(void *addr) {
+    return (heapStart <= addr) && (addr <= heapEnd);
 }
 
 void FlintAPI::System::print(const char *text, uint32_t length, uint8_t coder) {
@@ -27,7 +46,7 @@ void FlintAPI::System::print(const char *text, uint32_t length, uint8_t coder) {
     }
 }
 
-int64_t FlintAPI::System::getNanoTime(void) {
+uint64_t FlintAPI::System::getNanoTime(void) {
     return clock();
 }
 
