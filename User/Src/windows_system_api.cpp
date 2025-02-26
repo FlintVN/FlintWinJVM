@@ -4,6 +4,10 @@
 #include <time.h>
 #include "flint_system_api.h"
 
+void FlintAPI::System::reset(Flint &flint) {
+    /* DO NOTHING */
+}
+
 void *FlintAPI::System::malloc(uint32_t size) {
     return ::malloc(size);
 }
@@ -27,7 +31,7 @@ void FlintAPI::System::print(const char *text, uint32_t length, uint8_t coder) {
     }
 }
 
-int64_t FlintAPI::System::getNanoTime(void) {
+uint64_t FlintAPI::System::getNanoTime(void) {
     return clock();
 }
 
