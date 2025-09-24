@@ -9,12 +9,16 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/Build/Bin/FlintJVM.exe",
-            "cwd": "${workspaceFolder}/Build/Bin",
-            "preLaunchTask": "build",
+            "args": ["main"],
+            "cwd": "D:/Workspace/FlintVN/Test/bin",
             "windows": {
                 "MIMode": "gdb",
                 "miDebuggerPath": "gdb.exe",
-            }
+            },
+            "setupCommands": [
+                { "text": "set print symbol-filename off", "ignoreFailures": true },
+                { "text": "set print symbol off", "ignoreFailures": true }
+            ]
         }
     ],
 }

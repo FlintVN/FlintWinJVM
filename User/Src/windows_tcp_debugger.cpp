@@ -1,7 +1,7 @@
 
 #include "windows_tcp_debugger.h"
 
-WindowsTcpDebugger::WindowsTcpDebugger(Flint &flint) : FlintDebugger(flint) {
+WindowsTcpDebugger::WindowsTcpDebugger(void) : FDbg() {
     WSADATA wsaData;
     SOCKADDR_IN serverAddr;
 

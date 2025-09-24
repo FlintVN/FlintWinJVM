@@ -2,12 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "clean",
             "type": "shell",
-            "command": "make",
-            "args": [
-                "-j${env:NUMBER_OF_PROCESSORS}"
-            ],
+            "command": "make clean",
             "presentation": {
                 "echo": false,
                 "reveal": "always",
@@ -17,9 +14,27 @@
             "options": {
                 "cwd": "${workspaceFolder}",
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
+            "group": {
+                "kind": "build"
+            },
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "dependsOn": ["clean"],
+            "dependsOrder": "sequence",
+            "command": "make",
+            "args": ["-j${env:NUMBER_OF_PROCESSORS}"],
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}",
+            },
+            "problemMatcher": ["$gcc"],
             "group": {
                 "kind": "build",
                 "isDefault": true

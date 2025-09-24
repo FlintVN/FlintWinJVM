@@ -6,57 +6,46 @@ OBJECT_DIR      :=  $(BUILD_DIR)/Obj
 
 CC              :=  g++
 
-SOURCES       	:=  FlintJVM/VM/Src/flint_attribute_info.cpp                    \
-                    FlintJVM/VM/Src/flint_class_loader.cpp                      \
-                    FlintJVM/VM/Src/flint_common.cpp                            \
-                    FlintJVM/VM/Src/flint_const_name.cpp                        \
-                    FlintJVM/VM/Src/flint_const_pool.cpp                        \
-                    FlintJVM/VM/Src/flint_debugger.cpp                          \
-                    FlintJVM/VM/Src/flint_execution.cpp                         \
-                    FlintJVM/VM/Src/flint_field_info.cpp                        \
-                    FlintJVM/VM/Src/flint_fields_data.cpp                       \
-                    FlintJVM/VM/Src/flint_load_file_error.cpp                   \
-                    FlintJVM/VM/Src/flint_find_native_error.cpp                 \
-                    FlintJVM/VM/Src/flint_method_info.cpp                       \
-                    FlintJVM/VM/Src/flint_array_object.cpp                      \
-                    FlintJVM/VM/Src/flint_out_of_memory.cpp                     \
-                    FlintJVM/VM/Src/flint_const_utf8_binary_tree.cpp            \
-                    FlintJVM/VM/Src/flint_string_binary_tree.cpp                \
-                    FlintJVM/VM/Src/flint_class_binary_tree.cpp                 \
-                    FlintJVM/VM/Src/flint_class_data_binary_tree.cpp            \
-                    FlintJVM/VM/Src/flint_java_class.cpp                        \
-                    FlintJVM/VM/Src/flint_java_object.cpp                       \
-                    FlintJVM/VM/Src/flint_java_thread.cpp                       \
-                    FlintJVM/VM/Src/flint_java_string.cpp                       \
-                    FlintJVM/VM/Src/flint_java_throwable.cpp                    \
-                    FlintJVM/VM/Src/flint_java_boolean.cpp                      \
-                    FlintJVM/VM/Src/flint_java_byte.cpp                         \
-                    FlintJVM/VM/Src/flint_java_character.cpp                    \
-                    FlintJVM/VM/Src/flint_java_short.cpp                        \
-                    FlintJVM/VM/Src/flint_java_integer.cpp                      \
-                    FlintJVM/VM/Src/flint_java_float.cpp                        \
-                    FlintJVM/VM/Src/flint_java_long.cpp                         \
-                    FlintJVM/VM/Src/flint_java_double.cpp                       \
-                    FlintJVM/VM/Src/flint.cpp                                   \
-                    FlintJVM/Native/Src/flint_native_character_class.cpp        \
-                    FlintJVM/Native/Src/flint_native_class_class.cpp            \
-                    FlintJVM/Native/Src/flint_native_class.cpp                  \
-                    FlintJVM/Native/Src/flint_native_double_class.cpp           \
-                    FlintJVM/Native/Src/flint_native_float_class.cpp            \
-                    FlintJVM/Native/Src/flint_native_graphics_class.cpp         \
-                    FlintJVM/Native/Src/flint_native_math_class.cpp             \
-                    FlintJVM/Native/Src/flint_native_object_class.cpp           \
-                    FlintJVM/Native/Src/flint_native_thread_class.cpp           \
-                    FlintJVM/Native/Src/flint_native_print_stream_class.cpp     \
-                    FlintJVM/Native/Src/flint_native_string_class.cpp           \
-                    FlintJVM/Native/Src/flint_native_system_class.cpp           \
-                    FlintJVM/Native/Src/flint_native_biginteger_class.cpp       \
-                    FlintJVM/Native/Src/flint_native_array_class.cpp            \
-                    User/Src/main.cpp                                           \
-                    User/Src/windows_tcp_debugger.cpp                           \
+SOURCES       	:=  User/Src/main.cpp                                           \
                     User/Src/windows_system_api.cpp                             \
                     User/Src/windows_system_io_api.cpp                          \
-                    User/Src/windows_system_thread_api.cpp
+                    User/Src/windows_system_thread_api.cpp                      \
+                    User/Src/windows_system_native.cpp                          \
+                    User/Src/windows_tcp_debugger.cpp                           \
+                    FlintJVM/VM/Src/flint.cpp                                   \
+                    FlintJVM/VM/Src/flint_utf8.cpp                              \
+                    FlintJVM/VM/Src/flint_mutex.cpp                             \
+                    FlintJVM/VM/Src/flint_common.cpp                            \
+                    FlintJVM/VM/Src/flint_const_pool.cpp                        \
+                    FlintJVM/VM/Src/flint_fields_data.cpp                       \
+                    FlintJVM/VM/Src/flint_field_info.cpp                        \
+                    FlintJVM/VM/Src/flint_method_info.cpp                       \
+                    FlintJVM/VM/Src/flint_java_class.cpp                        \
+                    FlintJVM/VM/Src/flint_java_object.cpp                       \
+                    FlintJVM/VM/Src/flint_java_string.cpp                       \
+                    FlintJVM/VM/Src/flint_java_thread.cpp                       \
+                    FlintJVM/VM/Src/flint_java_throwable.cpp                    \
+                    FlintJVM/VM/Src/flint_array_object.cpp                      \
+                    FlintJVM/VM/Src/flint_class_loader.cpp                      \
+                    FlintJVM/VM/Src/flint_execution.cpp                         \
+                    FlintJVM/VM/Src/flint_debugger.cpp                          \
+                    FlintJVM/VM/Src/flint_utf8_dict_node.cpp                    \
+                    FlintJVM/VM/Src/flint_java_class_dict_node.cpp              \
+                    FlintJVM/VM/Src/flint_java_string_dict_node.cpp             \
+                    FlintJVM/Native/Src/flint_native_interface.cpp              \
+                    FlintJVM/Native/Src/flint_native.cpp                        \
+                    FlintJVM/Native/Src/flint_native_math.cpp                   \
+                    FlintJVM/Native/Src/flint_native_class.cpp                  \
+                    FlintJVM/Native/Src/flint_native_array.cpp                  \
+                    FlintJVM/Native/Src/flint_native_float.cpp                  \
+                    FlintJVM/Native/Src/flint_native_double.cpp                 \
+                    FlintJVM/Native/Src/flint_native_object.cpp                 \
+                    FlintJVM/Native/Src/flint_native_string.cpp                 \
+                    FlintJVM/Native/Src/flint_native_system.cpp                 \
+                    FlintJVM/Native/Src/flint_native_thread.cpp                 \
+                    FlintJVM/Native/Src/flint_native_character.cpp              \
+                    FlintJVM/Native/Src/flint_native_reflection.cpp             \
+                    FlintJVM/Native/Src/flint_native_print_stream.cpp
 
 INCLUDES      	:=  FlintJVM/Native/Inc                                         \
                     FlintJVM/VM/Inc                                             \
@@ -65,7 +54,7 @@ INCLUDES      	:=  FlintJVM/Native/Inc                                         \
 OPT             :=  -g
 
 CFLAGS          :=  -m32                                                        \
-                    -std=gnu++11                                                \
+                    -std=c++20                                                  \
                     -fdiagnostics-color=always                                  \
                     -static -static-libgcc -static-libstdc++                    \
                     -Wall                                                       \
@@ -100,5 +89,5 @@ $(BIN_DIR)/$(PROJECT_NAME).exe: $(OBJECTS)
 	@echo -e "$(GREEN)Build complete$(RESET)"
 
 clean:
-	@rm -rf $(BUILD_DIR)
+	@rm -rf $(OBJECT_DIR) $(BIN_DIR)/$(PROJECT_NAME).exe
 	@echo -e "$(GREEN)Clean complete$(RESET)"

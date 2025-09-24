@@ -5,14 +5,11 @@
 #include "flint.h"
 #include "windows_tcp_debugger.h"
 
-using namespace std;
-
 int main(int argc, char *argv[]) {
-    Flint &flint = Flint::getInstance();
-    WindowsTcpDebugger dbg(flint);
+    WindowsTcpDebugger dbg;
 
     bool isRunDebug = false;
-    char *mainClass = 0;
+    const char *mainClass = NULL;
 
     for(uint32_t i = 1; i < argc; i++) {
         if(strcmp(argv[i], "-g") == 0)
@@ -21,8 +18,8 @@ int main(int argc, char *argv[]) {
             mainClass = argv[i];
     }
 
-    if(isRunDebug || mainClass == 0) {
-        flint.setDebugger(&dbg);
+    if(isRunDebug || mainClass == NULL) {
+        Flint::setDebugger(&dbg);
         FlintAPI::Thread::sleep(10);
         std::cout << "FlintJVM debug server is started" << std::endl;
         setlocale(LC_CTYPE, "");
@@ -33,9 +30,10 @@ int main(int argc, char *argv[]) {
     else {
         _setmode(_fileno(stdout), 0x00020000);
         _setmode(_fileno(stdin), 0x00020000);
-        flint.runToMain(mainClass);
-        while(flint.isRunning())
+        Flint::runToMain(mainClass);
+        while(Flint::isRunning())
             FlintAPI::Thread::yield();
+        Flint::freeAll();
     }
 
     return 0;

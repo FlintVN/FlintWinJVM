@@ -3,17 +3,19 @@
 #define __WINDOWS_TCP_DEBUGGER_H
 
 #include <future>
+#define byte win_byte_override
 #include <winsock2.h>
-#include "flint.h"
-#include "flint_system_api.h"
+#undef byte
+#include "flint_std.h"
+#include "flint_debugger.h"
 
-class WindowsTcpDebugger : public FlintDebugger {
+class WindowsTcpDebugger : public FDbg {
 private:
     HANDLE hThread;
     SOCKET server;
     SOCKET client;
 public:
-    WindowsTcpDebugger(Flint &flint);
+    WindowsTcpDebugger(void);
 
     bool sendData(uint8_t *data, uint32_t length);
     void receiveTask(void);
