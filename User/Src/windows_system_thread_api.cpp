@@ -2,6 +2,8 @@
 #include <windows.h>
 #include "flint_system_api.h"
 
+using namespace FlintAPI::Thread;
+
 ThreadHandle FlintAPI::Thread::create(void (*task)(void *), void *param, uint32_t stackSize) {
     return CreateThread(
         NULL,                           /* Default security attributes */

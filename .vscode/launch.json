@@ -9,8 +9,8 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/Build/Bin/FlintJVM.exe",
-            "args": ["main"],
-            "cwd": "D:/Workspace/FlintVN/Test/bin",
+            "args": ["Main"],
+            "cwd": "${workspaceFolder}/Build/Bin",
             "windows": {
                 "MIMode": "gdb",
                 "miDebuggerPath": "gdb.exe",

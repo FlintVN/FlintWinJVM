@@ -10,7 +10,6 @@ SOURCES       	:=  User/Src/main.cpp                                           \
                     User/Src/windows_system_api.cpp                             \
                     User/Src/windows_system_io_api.cpp                          \
                     User/Src/windows_system_thread_api.cpp                      \
-                    User/Src/windows_system_native.cpp                          \
                     User/Src/windows_tcp_debugger.cpp                           \
                     FlintJVM/VM/Src/flint.cpp                                   \
                     FlintJVM/VM/Src/flint_utf8.cpp                              \
@@ -30,6 +29,8 @@ SOURCES       	:=  User/Src/main.cpp                                           \
                     FlintJVM/VM/Src/flint_execution.cpp                         \
                     FlintJVM/VM/Src/flint_debugger.cpp                          \
                     FlintJVM/VM/Src/flint_utf8_dict_node.cpp                    \
+                    FlintJVM/VM/Src/flint_file_reader.cpp                       \
+                    FlintJVM/VM/Src/flint_zip_file_reader.cpp                   \
                     FlintJVM/VM/Src/flint_java_class_dict_node.cpp              \
                     FlintJVM/VM/Src/flint_java_string_dict_node.cpp             \
                     FlintJVM/Native/Src/flint_native_interface.cpp              \
@@ -43,9 +44,14 @@ SOURCES       	:=  User/Src/main.cpp                                           \
                     FlintJVM/Native/Src/flint_native_string.cpp                 \
                     FlintJVM/Native/Src/flint_native_system.cpp                 \
                     FlintJVM/Native/Src/flint_native_thread.cpp                 \
+                    FlintJVM/Native/Src/flint_native_method.cpp                 \
+                    FlintJVM/Native/Src/flint_native_io_file.cpp                \
                     FlintJVM/Native/Src/flint_native_character.cpp              \
                     FlintJVM/Native/Src/flint_native_reflection.cpp             \
-                    FlintJVM/Native/Src/flint_native_print_stream.cpp
+                    FlintJVM/Native/Src/flint_native_constructor.cpp            \
+                    FlintJVM/Native/Src/flint_native_io_file_descriptor.cpp     \
+                    FlintJVM/Native/Src/flint_native_io_file_input_stream.cpp   \
+                    FlintJVM/Native/Src/flint_native_io_file_output_stream.cpp
 
 INCLUDES      	:=  FlintJVM/Native/Inc                                         \
                     FlintJVM/VM/Inc                                             \
