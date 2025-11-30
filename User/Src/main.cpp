@@ -22,14 +22,9 @@ int main(int argc, char *argv[]) {
         Flint::setDebugger(&dbg);
         FlintAPI::Thread::sleep(10);
         std::cout << "FlintJVM debug server is started" << std::endl;
-        setlocale(LC_CTYPE, "");
-        _setmode(_fileno(stdout), 0x00020000);
-        _setmode(_fileno(stdin), 0x00020000);
         dbg.receiveTask();
     }
     else {
-        _setmode(_fileno(stdout), 0x00020000);
-        _setmode(_fileno(stdin), 0x00020000);
         Flint::runToMain(mainClass);
         while(Flint::isRunning())
             FlintAPI::Thread::yield();

@@ -43,9 +43,11 @@ SOURCES       	:=  User/Src/main.cpp                                           \
                     FlintJVM/Native/Src/flint_native_string.cpp                 \
                     FlintJVM/Native/Src/flint_native_system.cpp                 \
                     FlintJVM/Native/Src/flint_native_thread.cpp                 \
+                    FlintJVM/Native/Src/flint_native_io_file.cpp                \
                     FlintJVM/Native/Src/flint_native_character.cpp              \
                     FlintJVM/Native/Src/flint_native_reflection.cpp             \
-                    FlintJVM/Native/Src/flint_native_print_stream.cpp
+                    FlintJVM/Native/Src/flint_native_io_file_input_stream.cpp   \
+                    FlintJVM/Native/Src/flint_native_io_file_output_stream.cpp
 
 INCLUDES      	:=  FlintJVM/Native/Inc                                         \
                     FlintJVM/VM/Inc                                             \

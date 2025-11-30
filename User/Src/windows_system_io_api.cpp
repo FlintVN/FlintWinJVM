@@ -1,9 +1,42 @@
 
 #include <iostream>
+#include <sys/stat.h>
 #include "flint_system_api.h"
 
-FileResult FlintAPI::IO::finfo(const char *fileName, uint32_t *size, int64_t *time) {
-    throw "FlintAPI::IO::finfo is not implemented in VM";
+using namespace FlintAPI::IO;
+
+FileResult FlintAPI::IO::finfo(const char *fileName, FileInfo *fileInfo) {
+    struct stat st;
+    if(stat(fileName, &st) == 0) {
+        if(fileInfo != NULL) {
+            fileInfo->readOnly = !(st.st_mode & S_IWUSR);
+            fileInfo->hidden = 0;
+            fileInfo->system = 0;
+            fileInfo->archive = 0;
+            fileInfo->directory = S_ISDIR(st.st_mode);
+            fileInfo->size = (fileInfo->directory) ? 0 : st.st_size;
+            fileInfo->time = st.st_mtime;
+
+            uint16_t index = 0;
+            const char *name = fileName;
+            while(*fileName) {
+                if(*fileName == '/' || *fileName == '\\') name = fileName + 1;
+                fileName++;
+            }
+            while(name[index] != 0) {
+                if(index < (sizeof(fileInfo->name) - 1)) {
+                    fileInfo->name[index] = name[index];
+                    index++;
+                }
+                else
+                    return FILE_RESULT_ERR;
+            }
+            fileInfo->name[index] = 0;
+        }
+        return FILE_RESULT_OK;
+    }
+    else
+        return FILE_RESULT_NO_PATH;
 }
 
 FileHandle FlintAPI::IO::fopen(const char *fileName, FileMode mode) {
@@ -15,7 +48,7 @@ FileHandle FlintAPI::IO::fopen(const char *fileName, FileMode mode) {
         buff[index++] = 'w';
     else
         buff[index++] = 'r';
-    if(mode & FA_CREATE_NEW)
+    if(mode & FILE_MODE_CREATE_NEW)
         buff[index++] = 'x';
     if((mode & (FILE_MODE_READ | FILE_MODE_WRITE)) == (FILE_MODE_READ | FILE_MODE_WRITE))
         buff[index++] = '+';
@@ -63,11 +96,15 @@ FileResult FlintAPI::IO::fremove(const char *fileName) {
     throw "FlintAPI::IO::fremove is not implemented in VM";
 }
 
+FileResult FlintAPI::IO::frename(const char *oldName, const char *newName) {
+    throw "FlintAPI::IO::frename is not implemented in VM";
+}
+
 DirHandle FlintAPI::IO::opendir(const char *dirName) {
     throw "FlintAPI::IO::opendir is not implemented in VM";
 }
 
-FileResult FlintAPI::IO::readdir(DirHandle handle, uint8_t *attribute, char *nameBuff, uint32_t buffSize, uint32_t *size, int64_t *time) {
+FileResult FlintAPI::IO::readdir(DirHandle handle, FileInfo *fileInfo) {
     throw "FlintAPI::IO::readdir is not implemented in VM";
 }
 

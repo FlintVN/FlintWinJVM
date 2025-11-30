@@ -20,15 +20,8 @@ void FlintAPI::System::free(void *p) {
     ::free(p);
 }
 
-void FlintAPI::System::print(const char *text, uint32_t length, uint8_t coder) {
-    if(coder == 0) {
-        for(uint32_t i = 0; i < length; i++)
-            std::wcout << (wchar_t)(uint8_t)text[i];
-    }
-    else {
-        for(uint32_t i = 0; i < length; i++)
-            std::wcout << (wchar_t)((uint16_t *)text)[i];
-    }
+void FlintAPI::System::consoleWrite(uint8_t *utf8, uint32_t length) {
+    printf("%.*s", length, utf8);
 }
 
 uint64_t FlintAPI::System::getNanoTime(void) {
