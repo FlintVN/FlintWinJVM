@@ -7,20 +7,20 @@ FileResult FlintAPI::IO::finfo(const char *fileName, uint32_t *size, int64_t *ti
 }
 
 FileHandle FlintAPI::IO::fopen(const char *fileName, FileMode mode) {
-    char buff[6];
+    char buff[5];
     uint32_t index = 0;
-    if(mode & (FLINT_FILE_CREATE_ALWAYS | FLINT_FILE_CREATE_NEW)) {
+    if((mode & FILE_MODE_APPEND) == FILE_MODE_APPEND)
+        buff[index++] = 'a';
+    else if(mode & (FILE_MODE_CREATE_ALWAYS | FILE_MODE_CREATE_NEW))
         buff[index++] = 'w';
-        if(mode & FLINT_FILE_CREATE_NEW)
-            buff[index++] = 'x';
-    }
     else
         buff[index++] = 'r';
-    buff[index++] = 'b';
-    if((mode & (FLINT_FILE_READ | FLINT_FILE_WRITE)) == (FLINT_FILE_READ | FLINT_FILE_WRITE))
+    if(mode & FA_CREATE_NEW)
+        buff[index++] = 'x';
+    if((mode & (FILE_MODE_READ | FILE_MODE_WRITE)) == (FILE_MODE_READ | FILE_MODE_WRITE))
         buff[index++] = '+';
+    buff[index++] = 'b';
     buff[index] = 0;
-
     return (FileHandle)::fopen(fileName, buff);
 }
 
@@ -38,6 +38,10 @@ FileResult FlintAPI::IO::fwrite(FileHandle handle, void *buff, uint32_t btw, uin
     if(temp != btw)
         return FILE_RESULT_ERR;
     return FILE_RESULT_OK;
+}
+
+uint32_t FlintAPI::IO::fsize(FileHandle handle) {
+    throw "FlintAPI::IO::fsize is not implemented in VM";
 }
 
 uint32_t FlintAPI::IO::ftell(FileHandle handle) {
@@ -60,17 +64,17 @@ FileResult FlintAPI::IO::fremove(const char *fileName) {
 }
 
 DirHandle FlintAPI::IO::opendir(const char *dirName) {
-    throw "FlintAPI::Directory::open is not implemented in VM";
+    throw "FlintAPI::IO::opendir is not implemented in VM";
 }
 
 FileResult FlintAPI::IO::readdir(DirHandle handle, uint8_t *attribute, char *nameBuff, uint32_t buffSize, uint32_t *size, int64_t *time) {
-    throw "FlintAPI::Directory::read is not implemented in VM";
+    throw "FlintAPI::IO::readdir is not implemented in VM";
 }
 
 FileResult FlintAPI::IO::closedir(DirHandle handle) {
-    throw "FlintAPI::Directory::close is not implemented in VM";
+    throw "FlintAPI::IO::closedir is not implemented in VM";
 }
 
 FileResult FlintAPI::IO::mkdir(const char *path) {
-    throw "FlintAPI::Directory::create is not implemented in VM";
+    throw "FlintAPI::IO::mkdir is not implemented in VM";
 }
